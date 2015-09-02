@@ -27,4 +27,11 @@ public class TrackerTest {
 		when(startoperation.fuehreAus(any(Scorecard.class))).thenReturn("foo");
 		assertThat(tracker.starte(), is("foo"));
 	}
+
+	@Test
+	public void fragtInterpreterNachBeenden() throws Exception {
+		when(interpreter.sollBeenden()).thenReturn(true);
+		assertThat(tracker.sollBeenden(), is(true));
+	}
+
 }

@@ -35,6 +35,7 @@ public class EinfacherIntepreterTest {
 				{"Nächstes Loch", Lochwechsel.class},
 				{"Hilfe", Hilfe.class},
 				{"Unbekannte Eingabe", Hilfehinweis.class},
+				{"Beenden", Beenden.class},
 				};
 		return Arrays.asList(testData);
 	}
@@ -43,4 +44,6 @@ public class EinfacherIntepreterTest {
 	public void interpretiertBefehle() throws Exception {
 		assertThat(interpreter.interpretiere(befehl), isA(operation));
 	}
+
+
 }
