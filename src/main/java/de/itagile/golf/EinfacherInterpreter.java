@@ -6,12 +6,13 @@ import de.itagile.golf.operation.Schlag;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 
 public class EinfacherInterpreter implements Interpreter {
 
 	private final Schlag defaultOperation;
-	private Map<String, Operation> operationen = new HashMap<>();
+	private Map<String, Operation> operationen = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
 	private String letzterBefehl = "";
 
 	public EinfacherInterpreter(Schlag defaultOperation) {
