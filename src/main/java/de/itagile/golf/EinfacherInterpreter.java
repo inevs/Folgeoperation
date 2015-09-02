@@ -1,12 +1,14 @@
 package de.itagile.golf;
 
+import de.itagile.golf.operation.Hilfehinweis;
+
 import java.util.HashMap;
 import java.util.Map;
 
 
 public class EinfacherInterpreter implements Interpreter {
 
-	private Map<String, Operation> operationen = new HashMap<String, Operation>();
+	private Map<String, Operation> operationen = new HashMap<>();
 
 	public EinfacherInterpreter() {
 		for (Befehl befehl : new BefehleSammler().sammle()) {
@@ -16,6 +18,10 @@ public class EinfacherInterpreter implements Interpreter {
 
 	@Override
 	public Operation interpretiere(String string) {
-		return operationen.get(string);
+		Operation operation = operationen.get(string);
+		if (operation == null) {
+			return new Hilfehinweis();
+		}
+		return operation;
 	}
 }
