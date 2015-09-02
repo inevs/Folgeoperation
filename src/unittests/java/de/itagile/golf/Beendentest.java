@@ -1,5 +1,6 @@
 package de.itagile.golf;
 
+import de.itagile.golf.befehl.SchlagBefehl;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,7 +13,7 @@ public class BeendenTest {
 
 	@Before
 	public void setUp() throws Exception {
-		interpreter = new EinfacherInterpreter();
+		interpreter = new EinfacherInterpreter(new SchlagBefehl().operation());
 	}
 
 	@Test

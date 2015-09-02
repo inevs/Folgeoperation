@@ -6,6 +6,7 @@ import static org.junit.Assert.assertThat;
 import java.util.Arrays;
 import java.util.List;
 
+import de.itagile.golf.befehl.SchlagBefehl;
 import de.itagile.golf.operation.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,7 +16,7 @@ import org.junit.runners.Parameterized.Parameters;
 @RunWith(Parameterized.class)
 public class EinfacherIntepreterTest {
 
-	private Interpreter interpreter = new EinfacherInterpreter();
+	private Interpreter interpreter = new EinfacherInterpreter(new SchlagBefehl().operation());
 	private final String befehl;
 	private final Class<? super Operation> operation;
 
@@ -28,6 +29,7 @@ public class EinfacherIntepreterTest {
 	public static List<Object[]> parameters() {
 		Object[][] testData = new Object[][] {
 				{"Schlage Ball", Schlag.class},
+				{"", Schlag.class},
 				{"Nächstes Loch", Lochwechsel.class},
 				{"nl", Lochwechsel.class},
 				{"Hilfe", Hilfe.class},
