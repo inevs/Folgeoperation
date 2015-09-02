@@ -1,5 +1,6 @@
 package de.itagile.golf;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.de.Dann;
@@ -39,4 +40,5 @@ public class NerdGolfTrackerStepdefs {
     public void verabschiedet_er_sich() throws Throwable {
         tracker.assertThatAntwort(containsString("Auf Wiedersehen!"));
     }
+
 }
