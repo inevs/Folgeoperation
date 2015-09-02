@@ -41,4 +41,13 @@ public class NerdGolfTrackerStepdefs {
         tracker.assertThatAntwort(containsString("Auf Wiedersehen!"));
     }
 
+    @Wenn("^ich den NerdGolfTracker benutze$")
+    public void ich_den_NerdGolfTracker_benutze() throws Throwable {
+        tracker.gibEin("schlage ball");
+    }
+
+    @Dann("^ignoriert er Groß- / Kleinschreibung$")
+    public void ignoriert_er_Groß_Kleinschreibung() throws Throwable {
+        tracker.assertThatAntwort(containsString("1 Schlag"));
+    }
 }
