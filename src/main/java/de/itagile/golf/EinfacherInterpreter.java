@@ -15,6 +15,7 @@ public class EinfacherInterpreter implements Interpreter {
 	public EinfacherInterpreter() {
 		for (Befehl befehl : new BefehleSammler().sammle()) {
 			operationen.put(befehl.kommando(), befehl.operation());
+			operationen.put(befehl.alias(), befehl.operation());
 		}
 	}
 
@@ -30,6 +31,6 @@ public class EinfacherInterpreter implements Interpreter {
 
 	@Override
 	public boolean sollBeenden() {
-		return letzterBefehl.equals(new BeendenBefehl().kommando());
+		return letzterBefehl.equals(new BeendenBefehl().kommando()) || letzterBefehl.equals(new BeendenBefehl().alias());
 	}
 }

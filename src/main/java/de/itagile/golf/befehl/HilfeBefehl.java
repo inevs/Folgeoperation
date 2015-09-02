@@ -11,6 +11,11 @@ public class HilfeBefehl implements Befehl {
 		return "Hilfe";
 	}
 
+	@Override
+	public String alias() {
+		return "h";
+	}
+
 	public Operation operation() {
 		return new Hilfe(new BefehleSammler());
 	}

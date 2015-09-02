@@ -15,6 +15,11 @@ public class LochwechselBefehl implements Befehl {
 		return "Nächstes Loch";
 	}
 
+	@Override
+	public String alias() {
+		return "nl";
+	}
+
 	public String beschreibung() {
 		return "dann zähle ich für das nächste Loch mit";
 	}

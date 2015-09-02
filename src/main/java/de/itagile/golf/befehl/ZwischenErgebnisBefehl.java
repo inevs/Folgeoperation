@@ -12,6 +12,11 @@ public class ZwischenErgebnisBefehl implements Befehl {
 	}
 
 	@Override
+	public String alias() {
+		return "zz";
+	}
+
+	@Override
 	public Operation operation() {
 		return new GesamtSchlagzahlAusgabe();
 	}
