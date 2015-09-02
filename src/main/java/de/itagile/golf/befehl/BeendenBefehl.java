@@ -12,6 +12,11 @@ public class BeendenBefehl implements Befehl {
 	}
 
 	@Override
+	public String alias() {
+		return "b";
+	}
+
+	@Override
 	public de.itagile.golf.Operation operation() {
 		return new Beenden(new GesamtSchlagzahlAusgabe());
 	}

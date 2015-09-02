@@ -29,6 +29,7 @@ public class EinfacherIntepreterTest {
 		Object[][] testData = new Object[][] {
 				{"Schlage Ball", Schlag.class},
 				{"Nächstes Loch", Lochwechsel.class},
+				{"nl", Lochwechsel.class},
 				{"Hilfe", Hilfe.class},
 				{"Unbekannte Eingabe", Hilfehinweis.class},
 				{"Beenden", Beenden.class},

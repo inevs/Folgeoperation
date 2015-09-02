@@ -27,5 +27,12 @@ public class BeendenTest {
 		assertThat(interpreter.sollBeenden(), is(true));
 	}
 
+	@Test
+	public void beendetSichBeiBeendenAlias() throws Exception {
+		interpreter.interpretiere("b");
+		assertThat(interpreter.sollBeenden(), is(true));
+	}
+
+
 
 }
