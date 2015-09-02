@@ -40,4 +40,13 @@ public class EinfacheScorecardTest {
 		scorecard.schliesseLochAb();
 		assertThat(scorecard.aktuellesLoch(), is(2));
 	}
+
+	@Test
+	public void zaehltUeberAlleLoecher() throws Exception {
+		scorecard.erhoeheAnzahlSchlaege();
+		scorecard.schliesseLochAb();
+		scorecard.erhoeheAnzahlSchlaege();
+		assertThat(scorecard.gesamtAnzahlSchlaege(), is(2));
+	}
+
 }
