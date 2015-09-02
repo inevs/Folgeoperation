@@ -13,9 +13,9 @@ public class Schlagzahlausgabe implements Operation {
 
 	@Override
 	public String fuehreAus(Scorecard scorecard) {
-		String vorlage = "Du hast %d Schlag %s";
-		return String.format(vorlage, 
-							 scorecard.anzahlSchlaege(), 
-							 folgeoperation.fuehreAus(scorecard));
+		int anzahlSchlaege = scorecard.anzahlSchlaege();
+		String schlag = anzahlSchlaege == 1 ? "Schlag" : "Schläge";
+		String vorlage = "Du hast %d " + schlag + " %s";
+		return String.format(vorlage, anzahlSchlaege, folgeoperation.fuehreAus(scorecard));
 	}
 }

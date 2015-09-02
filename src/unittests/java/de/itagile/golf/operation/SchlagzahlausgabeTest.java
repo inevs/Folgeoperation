@@ -21,6 +21,12 @@ public class SchlagzahlausgabeTest {
 		when(scorecard.anzahlSchlaege()).thenReturn(1);
 		assertThat(schlagzahlausgabe.fuehreAus(scorecard), containsString("1 Schlag"));
 	}
+
+	@Test
+	public void formatiertSchlägeMitMehrzahl() throws Exception {
+		when(scorecard.anzahlSchlaege()).thenReturn(2);
+		assertThat(schlagzahlausgabe.fuehreAus(scorecard), containsString("2 Schläge"));
+	}
 	
 	@Test
 	public void integriertAusgabeDerFolgeoperation() throws Exception {
