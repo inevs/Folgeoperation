@@ -36,7 +36,6 @@ public class LochwechselTest {
 	@Test
 	public void gibtAusgabeDerFolgeoperationMitAus() throws Exception {
 		when(folgeOperation.fuehreAus(any(Scorecard.class))).thenReturn("folgeoperationAusgabe");
-		
 		assertThat(lochwechsel.fuehreAus(scorecard), is("folgeoperationAusgabe"));	
 	}
 }
