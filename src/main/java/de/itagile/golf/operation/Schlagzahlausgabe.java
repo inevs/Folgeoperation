@@ -2,6 +2,7 @@ package de.itagile.golf.operation;
 
 import de.itagile.golf.Operation;
 import de.itagile.golf.Scorecard;
+import util.SchlagFormatierer;
 
 public class Schlagzahlausgabe implements Operation {
 
@@ -14,8 +15,7 @@ public class Schlagzahlausgabe implements Operation {
 	@Override
 	public String fuehreAus(Scorecard scorecard) {
 		int anzahlSchlaege = scorecard.anzahlSchlaege();
-		String schlag = anzahlSchlaege == 1 ? "Schlag" : "Schläge";
-		String vorlage = "Du hast %d " + schlag + " %s";
+		String vorlage = "Du hast %d " + SchlagFormatierer.formatiereNachAnzahl(anzahlSchlaege) + " %s";
 		return String.format(vorlage, anzahlSchlaege, folgeoperation.fuehreAus(scorecard));
 	}
 }
