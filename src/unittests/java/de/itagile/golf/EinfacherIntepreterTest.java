@@ -6,15 +6,11 @@ import static org.junit.Assert.assertThat;
 import java.util.Arrays;
 import java.util.List;
 
-import de.itagile.golf.operation.Hilfehinweis;
+import de.itagile.golf.operation.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-
-import de.itagile.golf.operation.Hilfe;
-import de.itagile.golf.operation.Lochwechsel;
-import de.itagile.golf.operation.Schlag;
 
 @RunWith(Parameterized.class)
 public class EinfacherIntepreterTest {
@@ -36,6 +32,7 @@ public class EinfacherIntepreterTest {
 				{"Hilfe", Hilfe.class},
 				{"Unbekannte Eingabe", Hilfehinweis.class},
 				{"Beenden", Beenden.class},
+				{"Zeige Zwischenergebnis", GesamtSchlagzahlAusgabe.class},
 				};
 		return Arrays.asList(testData);
 	}

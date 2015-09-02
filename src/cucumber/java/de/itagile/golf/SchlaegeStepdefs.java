@@ -62,4 +62,10 @@ public class SchlaegeStepdefs {
     public void zeigt_er_mir_die_die_Gesamtzahl_aller_Schläge_an() throws Throwable {
         tracker.assertThatAntwort(containsString("9 Schläge benötigt"));
     }
+
+    @Wenn("^ich den Zwischenstand anzeige$")
+    public void ich_den_Zwischenstand_anzeige() throws Throwable {
+        tracker.gibEin("Zeige Zwischenergebnis");
+    }
+
 }

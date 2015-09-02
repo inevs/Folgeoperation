@@ -18,6 +18,6 @@ public class BeendenBefehl implements Befehl {
 
 	@Override
 	public String beschreibung() {
-		return "... dann beende ich mich.";
+		return "dann beende ich mich.";
 	}
 }
