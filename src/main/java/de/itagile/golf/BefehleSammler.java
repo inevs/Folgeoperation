@@ -14,6 +14,7 @@ public class BefehleSammler {
 		ernte.add(new HilfeBefehl());
 		ernte.add(new BeendenBefehl());
 		ernte.add(new ZwischenErgebnisBefehl());
+		ernte.add(new UndoBefehl());
 		return ernte;
 	}
 }

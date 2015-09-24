@@ -16,6 +16,22 @@ public class SchlaegeStepdefs {
 	private TrackerDriver tracker;
 	private int schlaege;
 
+    @Angenommen("^ich habe den Ball auf dem aktuellen Loch (\\d+) mal geschlagen$")
+    public void ich_habe_den_Ball_auf_dem_aktuellen_Loch_mal_geschlagen(int schlaege) throws Throwable {
+        schlageBall(schlaege);
+    }
+
+    @Wenn("^ich den letzten Befehl rückgängig mache$")
+    public void ich_den_letzten_Befehl_rückgängig_mache() throws Throwable {
+        tracker.gibEin("Undo");
+    }
+
+    @Dann("^habe ich (\\d+) Schläge auf dem aktuellen Loch$")
+    public void habe_ich_Schläge_auf_dem_aktuellen_Loch(int schlaege) throws Throwable {
+        this.schlaege = schlaege;
+        pruefeSchlaege();
+    }
+
     public class Lochergebnis {
         int loch;
         int schläge;

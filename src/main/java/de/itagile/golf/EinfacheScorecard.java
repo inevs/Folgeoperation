@@ -27,4 +27,12 @@ public class EinfacheScorecard implements Scorecard {
 	public int gesamtAnzahlSchlaege() {
 		return gesamtAnzahlSchlaege;
 	}
+
+	@Override
+	public void reduziereAnzahlSchlaege() {
+		if (anzahlSchlaege > 0) {
+			anzahlSchlaege--;
+			gesamtAnzahlSchlaege--;
+		}
+	}
 }

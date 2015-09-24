@@ -36,6 +36,7 @@ public class EinfacherIntepreterTest {
 				{"Unbekannte Eingabe", Hilfehinweis.class},
 				{"Beenden", Beenden.class},
 				{"Zeige Zwischenergebnis", GesamtSchlagzahlAusgabe.class},
+				{"Undo", Undo.class}
 				};
 		return Arrays.asList(testData);
 	}

@@ -49,4 +49,28 @@ public class EinfacheScorecardTest {
 		assertThat(scorecard.gesamtAnzahlSchlaege(), is(2));
 	}
 
+	@Test
+	public void reduziertAnzahlSchlaege() throws Exception {
+		scorecard.erhoeheAnzahlSchlaege();
+		scorecard.reduziereAnzahlSchlaege();
+		assertThat(scorecard.anzahlSchlaege(), is(0));
+	}
+
+	@Test
+	public void reduziertGesamtanzahlSchlaege() throws Exception {
+		scorecard.erhoeheAnzahlSchlaege();
+		scorecard.reduziereAnzahlSchlaege();
+		assertThat(scorecard.gesamtAnzahlSchlaege(), is(0));
+	}
+
+	@Test
+	public void reduziertSchlaegeNichtUnterNull() throws Exception {
+		scorecard.reduziereAnzahlSchlaege();
+		assertThat(scorecard.anzahlSchlaege(), is(0));
+		assertThat(scorecard.gesamtAnzahlSchlaege(), is(0));
+	}
+
+
+
+
 }
