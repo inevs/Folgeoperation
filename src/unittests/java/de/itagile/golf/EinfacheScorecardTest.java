@@ -70,7 +70,35 @@ public class EinfacheScorecardTest {
 		assertThat(scorecard.gesamtAnzahlSchlaege(), is(0));
 	}
 
+	@Test
+	public void merktSichSchlaegeAufJedemLoch() throws Exception {
+		schlageBall(3);
+		scorecard.schliesseLochAb();
+		schlageBall(2);
+		assertThat(scorecard.anzahlSchlaegeFuerLoch(1), is(3));
+	}
 
+	@Test
+	public void stelltSchlaegeVonLetztemLochWiederHer() throws Exception {
+		schlageBall(3);
+		scorecard.schliesseLochAb();
+		scorecard.geheLochZurueck();
+		assertThat(scorecard.anzahlSchlaege(), is(3));
+	}
+
+	@Test
+	public void gehtNurBisLoch0Zurueck() throws Exception {
+		scorecard.geheLochZurueck();
+		assertThat(scorecard.anzahlSchlaege(), is(0));
+	}
+
+
+
+	private void schlageBall(int anzahl) {
+		for (int i=0; i<anzahl; i++) {
+			scorecard.erhoeheAnzahlSchlaege();
+		}
+	}
 
 
 }

@@ -13,4 +13,8 @@ public interface Scorecard {
 	int gesamtAnzahlSchlaege();
 
 	void reduziereAnzahlSchlaege();
+
+	int anzahlSchlaegeFuerLoch(int loch);
+
+	void geheLochZurueck();
 }

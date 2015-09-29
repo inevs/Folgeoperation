@@ -27,6 +27,7 @@ public class UndoTest {
 
 	@Test
 	public void reduziertDieAnzahlDerSchlaege() throws Exception {
+		when(scoreCard.anzahlSchlaege()).thenReturn(1);
 		undo.fuehreAus(scoreCard);
 		verify(scoreCard).reduziereAnzahlSchlaege();
 	}
@@ -35,6 +36,13 @@ public class UndoTest {
 	public void gibtAusgabeDerFolgeoperationMitAus() throws Exception {
 		when(folgeOperation.fuehreAus(scoreCard)).thenReturn("FolgeOperationausgabe");
 		assertThat(undo.fuehreAus(scoreCard), containsString("FolgeOperationausgabe"));
+	}
+
+	@Test
+	public void reduziertAktuellesLochWennKeinBallGeschlagen() throws Exception {
+		when(scoreCard.anzahlSchlaege()).thenReturn(0);
+		undo.fuehreAus(scoreCard);
+		verify(scoreCard).geheLochZurueck();
 	}
 
 

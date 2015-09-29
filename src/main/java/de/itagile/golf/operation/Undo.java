@@ -13,7 +13,11 @@ public class Undo implements Operation {
 
 	@Override
 	public String fuehreAus(Scorecard scorecard) {
-		scorecard.reduziereAnzahlSchlaege();
+		if (scorecard.anzahlSchlaege() == 0) {
+			scorecard.geheLochZurueck();
+		} else {
+			scorecard.reduziereAnzahlSchlaege();
+		}
 		return folgeOperation.fuehreAus(scorecard);
 	}
 }
