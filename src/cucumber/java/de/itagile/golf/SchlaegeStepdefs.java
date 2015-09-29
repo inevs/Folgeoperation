@@ -32,6 +32,11 @@ public class SchlaegeStepdefs {
         pruefeSchlaege();
     }
 
+    @Angenommen("^ich habe (\\d+) Bälle auf dem 1. Loch gespielt$")
+    public void ich_habe_Bälle_auf_dem_Loch_gespielt(int schlaege) throws Throwable {
+        schlageBall(schlaege);
+    }
+
     public class Lochergebnis {
         int loch;
         int schläge;
