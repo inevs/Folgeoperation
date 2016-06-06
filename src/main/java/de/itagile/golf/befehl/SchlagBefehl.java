@@ -15,6 +15,11 @@ public class SchlagBefehl implements Befehl {
 		return "Schlage Ball";
 	}
 
+	@Override
+	public String alias() {
+		return "sb";
+	}
+
 	public String beschreibung() {
 		return "dann zähle ich mit";
 	}

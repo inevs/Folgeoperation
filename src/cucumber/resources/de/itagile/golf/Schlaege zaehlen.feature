@@ -11,8 +11,10 @@ Funktionalität: Schläge pro Loch zählen
             |1|
             |2|
 
-    @in_arbeit
     Szenario: Lochwechsel
         Wenn ich auf einem Loch gespielt habe
         Dann zählen die Schläge auf dem nächsten Loch wieder von 0 an
 
+    Szenario: Ignoriert Groß-/Kleinschreibung
+        Wenn ich den NerdGolfTracker benutze
+        Dann ignoriert er Groß- / Kleinschreibung

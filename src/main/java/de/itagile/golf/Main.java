@@ -2,6 +2,7 @@ package de.itagile.golf;
 
 import java.io.IOException;
 
+import de.itagile.golf.befehl.SchlagBefehl;
 import de.itagile.golf.konsole.Konsole;
 import de.itagile.golf.operation.Lochausgabe;
 import de.itagile.golf.operation.Startausgabe;
@@ -12,13 +13,15 @@ public class Main {
 		Konsole konsole = new Konsole();
 		
 		Startausgabe startoperation = new Startausgabe(new Lochausgabe());
-		Tracker tracker = new Tracker(new EinfacherInterpreter(), startoperation);
+		Tracker tracker = new Tracker(new EinfacherInterpreter(new SchlagBefehl().operation()), startoperation);
 
 		konsole.println(tracker.starte()).beendeAusgabe();
-		
-		while (true) {
+
+		boolean sollBeenden = false;
+		while (!sollBeenden) {
 			String befehl = konsole.liesZeileEin();
 			konsole.println(tracker.reagiereAuf(befehl)).beendeAusgabe();
+			sollBeenden = tracker.sollBeenden();
 		}
 	}
 }

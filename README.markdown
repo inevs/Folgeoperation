@@ -1,14 +1,3 @@
-Quotes Language: German
-
-
-# Code-Formatierung
-
-Einrücktiefe
-
-* Java-Code: 1 Tab
-* `build.gradle`: 4 Leerzeichen
-
-
 # Requirements
 
 * Java 7
@@ -17,34 +6,15 @@ Einrücktiefe
 Known to work
 
 * Java 8
-* Gradle 2.10
+* Gradle 2.12
 
 
-# Fallstricke
+# Folgeoperation
 
-Die ausführbare Spezifikation verlässt sich darauf, dass der NerdGolfTracker seine Ausgabe auf einmal tätigt, technisch gesprochen: dass der Output-Stream nur einmal geflusht wird. Würde mehrmals geflusht werden, wäre das Lesen der Ausgabe im `TrackerDriver` unzuverlässig.
+Übung für ein größeres Refactoring. Fast jede Operation hat eine Folgeoperation. Wenn die Operation ausgeführt wird, so wird dann auch die Folgeoperation ausgeführt. Diese Struktur erzeugt unnötig aufwändigen Code in den Operationen. So muss z.B. jede Operation wissen, wenn sie eine Folgeoperation hat, dass diese auch entsprechend aufgerufen werden soll.
 
+# Refactoring
 
-# Absichtliche Fehler
+Idee: Neue Struktur ist nicht mehr die Verkettung von Operationen über Folgeoperation. Statt dessen soll das Composite-Pattern eingesetzt werden. Erstelle eine neue Klasse (zB KombinierteOperation), welche das Interface Operation implementiert. Diese enthält alle Operationen eines bestimmten Befehls und sorgt dafür, dass diese in der richtigen Reihenfolge ausgeführt werden. 
 
-* Bei der Ausgabe der aktuellen Schläge wird "Schlag" nur im Singular ausgegeben.
-* Beim Lochwechsel wird die Zahl der Schläge nicht zurückgesetzt.
-* Bei der Ausgabe des aktuellen Lochs fehlt ein Leerzeichen zwischen Zahl and "Loch".
-* Bei der Hilfe-Ausgabe ist die Einleitung nicht durch einen Zeilenumbruch abgetrennt.
-
-
-# Definition of done
-
-Der Build sollte auf Kombinationen folgender Parameter funktionieren:
-
-* OS X/Windows/Ubuntu
-* Java 7/8
-
-Eine praktikable einfachere Lösung scheint:
-
-* OS X Java 7, OS X Java 8, Windows Java 7
-
-
-## Checklisten
-
-* Gradle: <default>, eclipse, idea, uploadArchives
+Auch große Refactorings lassen sich in kleinere Schritte aufteilen. Stelle den Code schrittweise um. Lasse nach jedem Schritt alle Tests laufen und prüfe, dass noch alles funktioniert.

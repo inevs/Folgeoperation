@@ -21,15 +21,15 @@ public class HilfeTest {
 	}
 
 	@Test
-	public void zeigtBeschreibungZumKommando() throws Exception {
-		assertThat(hilfetext(dummyBefehl("Kommando", "Beschreibung")), 
-				containsString("Kommando (...Beschreibung)"));
+	public void zeigtBeschreibungUndAliasZumKommando() throws Exception {
+		assertThat(hilfetext(dummyBefehl("Kommando", "Alias", "Beschreibung")),
+				containsString("Kommando [Alias] (...Beschreibung)"));
 	}
 
 	@Test
 	public void gibtProKommandoEineZeileAus() throws Exception {
 		String hilfetextFuerZweiBefehle = hilfetext(mock(Befehl.class), mock(Befehl.class));
-		assertThat(anzahlZeilen(hilfetextFuerZweiBefehle), is(2));
+		assertThat(anzahlZeilen(hilfetextFuerZweiBefehle), is(3));
 	}
 
 	private int anzahlZeilen(String string) {
@@ -45,10 +45,11 @@ public class HilfeTest {
 		return hilfe.fuehreAus(null);
 	}
 
-	private Befehl dummyBefehl(String kommando, String beschreibung) {
+	private Befehl dummyBefehl(String kommando, String alias, String beschreibung) {
 		Befehl befehl = mock(Befehl.class);
 		when(befehl.kommando()).thenReturn(kommando);
 		when(befehl.beschreibung()).thenReturn(beschreibung);
+		when(befehl.alias()).thenReturn(alias);
 		return befehl;
 	}
 }

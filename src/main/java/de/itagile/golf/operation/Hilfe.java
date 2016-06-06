@@ -24,10 +24,10 @@ public class Hilfe implements Operation {
 		for (Befehl befehl : sammler.sammle()) {
 			hilfeTexte.add(hilfeZeileFuer(befehl));
 		}
-		return "Ich reagiere auf: " + CollectionUtils.join(hilfeTexte, SystemProperties.LINE_SEPARATOR);
+		return "Ich reagiere auf:" + SystemProperties.LINE_SEPARATOR + CollectionUtils.join(hilfeTexte, SystemProperties.LINE_SEPARATOR);
 	}
 
 	private String hilfeZeileFuer(Befehl befehl) {
-		return String.format(" * %s (...%s)", befehl.kommando(), befehl.beschreibung());
+		return String.format(" * %s [%s] (...%s)", befehl.kommando(), befehl.alias(), befehl.beschreibung());
 	}
 }

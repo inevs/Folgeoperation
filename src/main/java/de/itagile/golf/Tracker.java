@@ -25,4 +25,7 @@ public class Tracker {
 		this.startoperation = startoperation;
 	}
 
+	public boolean sollBeenden() {
+		return interpreter.sollBeenden();
+	}
 }
