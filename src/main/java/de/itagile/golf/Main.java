@@ -17,11 +17,12 @@ public class Main {
 
 		konsole.println(tracker.starte()).beendeAusgabe();
 
-		boolean sollBeenden = false;
-		while (!sollBeenden) {
+		while (true) {
 			String befehl = konsole.liesZeileEin();
 			konsole.println(tracker.reagiereAuf(befehl)).beendeAusgabe();
-			sollBeenden = tracker.sollBeenden();
+			if (befehl.equalsIgnoreCase("Beenden") || befehl.equalsIgnoreCase("b")) {
+				break;
+			}
 		}
 	}
 }

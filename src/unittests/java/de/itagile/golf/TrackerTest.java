@@ -28,10 +28,4 @@ public class TrackerTest {
 		assertThat(tracker.starte(), is("foo"));
 	}
 
-	@Test
-	public void fragtInterpreterNachBeenden() throws Exception {
-		when(interpreter.sollBeenden()).thenReturn(true);
-		assertThat(tracker.sollBeenden(), is(true));
-	}
-
 }

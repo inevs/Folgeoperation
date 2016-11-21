@@ -36,8 +36,4 @@ public class EinfacherInterpreter implements Interpreter {
 		return operation;
 	}
 
-	@Override
-	public boolean sollBeenden() {
-		return letzterBefehl.equals(new BeendenBefehl().kommando()) || letzterBefehl.equals(new BeendenBefehl().alias());
-	}
 }
